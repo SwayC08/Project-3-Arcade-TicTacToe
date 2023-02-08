@@ -50,7 +50,6 @@ function buildBoard(){
 };
 window.addEventListener("DOMContentLoaded",buildBoard);
 
-
 let mainElement = document.getElementsByTagName("main-section");
 let inputPrompt1 = document.getElementById("input1");
 let inputPrompt2 = document.getElementById("input2");
