@@ -9,15 +9,17 @@ let board = document.getElementsByClassName("board")[0];
 let cell = document.getElementsByClassName("cell")[0];
 let numCell = document.getElementsByClassName("cell")[1];
 
-// let gameState = {
-//         players: [ , ]    
-// };
-
 // let playerArray = [nameP1, nameP2];
+
+// troubleshoot values
+let nameP1 = "Player 1";
+let nameP2 = "Player 2";
+let numOfPlayers = 2;
+// troubleshoot values
 
 // Display name function
     // name prompt
-let nameP1 = prompt("Enter Player Name"); 
+// let nameP1 = prompt("Enter Player Name"); 
 function enterName(){
 // show name entered
         inputPrompt1.textContent = "Player 1: " + nameP1;
@@ -28,10 +30,10 @@ window.addEventListener("DOMContentLoaded", enterName);
 
 // Display number of players function
     // number of players prompt
-let numOfPlayers = prompt("Enter number of players:");
+// let numOfPlayers = prompt("Enter number of players:");
 function enterNumPlayers(){
 // show player mode 
-    inputPrompt3.textContent = numOfPlayers + "-player mode selected.";
+    inputPrompt3.textContent = numOfPlayers + "-player mode ";
     // if numOfPlayers = 1
 // P1 vs Computer Mode (insert function);
 
@@ -42,7 +44,7 @@ window.addEventListener("DOMContentLoaded", enterNumPlayers);
 
 // 2-player mode     
     // name prompt
-let nameP2 = prompt("Enter Player 2 Name");    
+// let nameP2 = prompt("Enter Player 2 Name");    
 function enterName2(){
 // show second name; or "computer"
     inputPrompt2.textContent = "Player 2: " + nameP2;
@@ -50,7 +52,7 @@ function enterName2(){
 };
 window.addEventListener("DOMContentLoaded", enterName2);
 
-
+// Game State Variables
 // currentPlayer initial value 
 let currentPlayer = undefined;
 // creates random boolean
@@ -78,18 +80,31 @@ function buttonSelect(event){
     event.target.style.fontSize = "50px";
     // event.target.style.backgroundColor = "red";
     // outputStatus.textContent = currentPlayer;
-    if (currentPlayer ==  nameP1){
-        currentPlayer =  nameP2;
+    if (currentPlayer ===  nameP1){
         event.target.style.backgroundColor = "red";
         event.target.textContent = "X";
+        currentPlayer =  nameP2;
         // console.log(currentPlayer);
     } else {
-        currentPlayer = nameP1;
         event.target.style.backgroundColor = "blue";
         event.target.textContent = "O";
+        currentPlayer = nameP1;
         // console.log(currentPlayer);
     }; 
-    outputStatus.textContent = currentPlayer + " it is your turn, please make a selection.";
+    if (targetNumCell > 0){
+        console.log(event.target.classList)
+        event.target.classList.remove('.cell')
+    //     // numCell targetNumCell
+    //     // use index position 
+    //     // if cell has a value then button becomes un-clickable 
+    //     // if  event.target.length > 0;
+    };
+    if (!gameBoard.includes(undefined)){
+        outputStatus.textContent = "Game Ends in a Draw"
+    } else {
+        outputStatus.textContent = currentPlayer + " it's your turn, please make a selection.";
+    };
+    
 };
 
 function buildBoard(){
@@ -102,6 +117,7 @@ function buildBoard(){
         newCell.classList.add("cell");
 // add class numCell
         newCell.classList.add(numCell);
+
         board.style.backgroundColor = "black";
 // add event listener to all buttons    
         // newCell.addEventListener('click', buttonSelect);
