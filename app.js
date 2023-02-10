@@ -12,11 +12,12 @@ let numCell = document.getElementsByClassName("cell")[1];
 // let playerArray = [nameP1, nameP2];
 
 // troubleshoot values
-let nameP1 = "Player 1";
-let nameP2 = "Player 2";
+let nameP1 = "Josue";
+let nameP2 = "Chelsey";
 let numOfPlayers = 2;
 // troubleshoot values
 
+// combine all game setup questions into 1 function
 // Display name function
     // name prompt
 // let nameP1 = prompt("Enter Player Name"); 
@@ -64,21 +65,20 @@ if (randomStartPick == true){
     currentPlayer = nameP2;
 };
 
-let gameBoard = [ ];
+let gameBoard = [];
 
 function buttonSelect(event){
     // console.log(event)
-    console.log(event.target)
+    // console.log(event.target)
     // console.log(event.target.classList[1])
     // console.log(typeof event.target.classList[1])
     let targetNumCell = parseInt(event.target.classList[1])
-    console.log(typeof targetNumCell)
+    // console.log(typeof targetNumCell)
     gameBoard[targetNumCell] = currentPlayer;
     console.log(gameBoard);
     console.log(targetNumCell);
     event.target.textContent = currentPlayer;
     event.target.style.fontSize = "50px";
-    // event.target.style.backgroundColor = "red";
     // outputStatus.textContent = currentPlayer;
     if (currentPlayer ===  nameP1){
         event.target.style.backgroundColor = "red";
@@ -91,26 +91,45 @@ function buttonSelect(event){
         currentPlayer = nameP1;
         // console.log(currentPlayer);
     };
-// stop player override button ( if button is filled, cant select)
+// stop override filled cell (if button filled, cant select)
     if(event.target != undefined){
         event.target.removeEventListener('click', buttonSelect);
     };
-// End game P1 wins
-let p1WinCond = [
-    [nameP1, nameP1, nameP1],
-    // [nameP1, nameP1, nameP1],
-    // [nameP1, nameP1, nameP1]
-];
-    // if (event.target === p1WinCond){
-    //     // console.log(event.target)
-    //     outputStatus.textContent = nameP1 + " Wins!"
-        // return event.target
-    // };
-    if (gameBoard.includes(p1WinCond)){
-        // console.log(event.target)
+    
+    // let p1WinCond = [ 
+    //     [0,1,2],
+    //     [3,4,5],
+    //     [6,7,8],
+    //     [0,3,6],
+    //     [1,4,7],
+    //     [2,5,8],
+    //     [0,4,8],
+    //     [2,4,6]
+    // ];
+    for()
+
+// Player 1 winning conditions
+    if (gameBoard[0,1,2] === nameP1 || gameBoard[3,4,5] === nameP1 || gameBoard[6,7,8] === nameP1 || gameBoard[0,3,6] === nameP1 || gameBoard[1,4,7] === nameP1 || gameBoard[2,5,8] === nameP1 || gameBoard[0,4,8] === nameP1 || gameBoard[2,4,6] === nameP1){
+        // console.log(gameBoard);
         outputStatus.textContent = nameP1 + " Wins!"
-        // return event.target
+        return nameP1;
     };
+// Player 2 winning conditions
+    if (gameBoard[0,1,2] === nameP2 || gameBoard[3,4,5] === nameP2 || gameBoard[6,7,8] === nameP2 || gameBoard[0,3,6] === nameP2 || gameBoard[1,4,7] === nameP2 || gameBoard[2,5,8] === nameP2 || gameBoard[0,4,8] === nameP2 || gameBoard[2,4,6] === nameP2){
+        // console.log(gameBoard);
+        outputStatus.textContent = nameP2 + " Wins!"
+        return nameP2;
+    };
+// End game P1 wins 
+// clone gameBoard & use to compare win conditions
+    // let p1WinCond = [ 
+    //     [nameP1, nameP1, nameP1]
+    //     // [nameP1, nameP1, nameP1],
+    //     // [nameP1, nameP1, nameP1]
+    // ];
+
+
+
 // End game in draw, out of empty cells
     if (!gameBoard.includes(undefined)){
         outputStatus.textContent = "Game Ends in a Draw"
@@ -126,14 +145,13 @@ function buildBoard(){
         gameBoard.push(undefined);
 // creates buttons
         let newCell = document.createElement("button");
-// add class cell & style     
+// add class cell      
         newCell.classList.add("cell");
 // add class numCell
         newCell.classList.add(numCell);
-
+// add style 
         board.style.backgroundColor = "black";
 // add event listener to all buttons    
-        // newCell.addEventListener('click', buttonSelect);
         newCell.addEventListener('click', buttonSelect);
         outputStatus.textContent = currentPlayer + " was randomly chosen to go first. Please make a selection."; 
         board.appendChild(newCell);
