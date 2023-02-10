@@ -90,15 +90,28 @@ function buttonSelect(event){
         event.target.textContent = "O";
         currentPlayer = nameP1;
         // console.log(currentPlayer);
-    }; 
-    if (targetNumCell > 0){
-        console.log(event.target.classList)
-        event.target.classList.remove('.cell')
-    //     // numCell targetNumCell
-    //     // use index position 
-    //     // if cell has a value then button becomes un-clickable 
-    //     // if  event.target.length > 0;
     };
+// stop player override button ( if button is filled, cant select)
+    if(event.target != undefined){
+        event.target.removeEventListener('click', buttonSelect);
+    };
+// End game P1 wins
+let p1WinCond = [
+    [nameP1, nameP1, nameP1],
+    // [nameP1, nameP1, nameP1],
+    // [nameP1, nameP1, nameP1]
+];
+    // if (event.target === p1WinCond){
+    //     // console.log(event.target)
+    //     outputStatus.textContent = nameP1 + " Wins!"
+        // return event.target
+    // };
+    if (gameBoard.includes(p1WinCond)){
+        // console.log(event.target)
+        outputStatus.textContent = nameP1 + " Wins!"
+        // return event.target
+    };
+// End game in draw, out of empty cells
     if (!gameBoard.includes(undefined)){
         outputStatus.textContent = "Game Ends in a Draw"
     } else {
