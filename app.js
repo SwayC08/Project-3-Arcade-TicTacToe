@@ -1,5 +1,4 @@
 // user display
-let mainElement = document.getElementsByTagName("main-section");
 let inputPrompt1 = document.getElementById("input1");
 let inputPrompt2 = document.getElementById("input2");
 let inputPrompt3 = document.getElementById("input3");
@@ -74,7 +73,7 @@ function buttonSelect(event){
         event.target.textContent = "O";
         currentPlayer = nameP1;
     };
-// stop override filled cell
+// stop filled cell override 
     if(event.target != undefined){
         event.target.removeEventListener('click', buttonSelect);
     };
@@ -88,86 +87,86 @@ function buttonSelect(event){
     if (gameBoard[3] == nameP1 && gameBoard[4] === nameP1 && gameBoard[5] === nameP1){
         outputStatus.textContent = nameP1 + " Wins!";
         gameOver();
-        return;
+        return
     };
     if (gameBoard[6] == nameP1 && gameBoard[7] === nameP1 && gameBoard[8] === nameP1){
         outputStatus.textContent = nameP1 + " Wins!";
         gameOver();
-        return;    
+        return   
     };
     if (gameBoard[0] == nameP1 && gameBoard[3] === nameP1 && gameBoard[6] === nameP1){
         outputStatus.textContent = nameP1 + " Wins!";
         gameOver();
-        return;    
+        return  
     };
     if (gameBoard[1] == nameP1 && gameBoard[4] === nameP1 && gameBoard[7] === nameP1){
         outputStatus.textContent = nameP1 + " Wins!";
         gameOver();
-        return;    
+        return    
     };
     if (gameBoard[2] == nameP1 && gameBoard[5] === nameP1 && gameBoard[8] === nameP1){
         outputStatus.textContent = nameP1 + " Wins!";
         gameOver();
-        return;    
+        return    
     };
     if (gameBoard[0] == nameP1 && gameBoard[4] === nameP1 && gameBoard[8] === nameP1){
         outputStatus.textContent = nameP1 + " Wins!";
         gameOver();
-        return; 
+        return
     };
     if (gameBoard[2] == nameP1 && gameBoard[4] === nameP1 && gameBoard[6] === nameP1){
         outputStatus.textContent = nameP1 + " Wins!";
         gameOver();
-        return;  
+        return  
     };
 
 // Player 2 winning conditions
-    if (gameBoard[0] == nameP2 && gameBoard[1] === nameP2 && gameBoard[2] === nameP2){
+    if (gameBoard[0] == nameP2 &&  gameBoard[1] === nameP2 && gameBoard[2] === nameP2){
         outputStatus.textContent = nameP2 + " Wins!";
         gameOver();
-        return;
+        return
     };
     if (gameBoard[3] == nameP2 && gameBoard[4] === nameP2 && gameBoard[5] === nameP2){
         outputStatus.textContent = nameP2 + " Wins!";
         gameOver();
-        return;
+        return
     };
     if (gameBoard[6] == nameP2 && gameBoard[7] === nameP2 && gameBoard[8] === nameP2){
         outputStatus.textContent = nameP2 + " Wins!";
         gameOver();
-        return;    
+        return    
     };
     if (gameBoard[0] == nameP2 && gameBoard[3] === nameP2 && gameBoard[6] === nameP2){
         outputStatus.textContent = nameP2 + " Wins!";
         gameOver();
-        return;    
+        return   
     };
     if (gameBoard[1] == nameP2 && gameBoard[4] === nameP2 && gameBoard[7] === nameP2){
         outputStatus.textContent = nameP2 + " Wins!";
         gameOver();
-        return;    
+        return    
     };
     if (gameBoard[2] == nameP2 && gameBoard[5] === nameP2 && gameBoard[8] === nameP2){
         outputStatus.textContent = nameP2 + " Wins!";
         gameOver();
-        return;    
+        return   
     };
     if (gameBoard[0] == nameP2 && gameBoard[4] === nameP2 && gameBoard[8] === nameP2){
         outputStatus.textContent = nameP2 + " Wins!";
         gameOver();
-        return; 
+        return 
     };
     if (gameBoard[2] == nameP2 && gameBoard[4] === nameP2 && gameBoard[6] === nameP2){
         outputStatus.textContent = nameP2 + " Wins!";
         gameOver();
-        return;  
+        return 
     };
 
 // End game in draw
     if (!gameBoard.includes(undefined)){
         outputStatus.textContent = "Game Ends in a Draw";
         gameOver();
-        return;
+        return
     } else {
         outputStatus.textContent = currentPlayer + " it's your turn, please make a selection.";
     };
