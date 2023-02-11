@@ -24,24 +24,30 @@ h1 {
 
 #input1 {
     width: 300px;
-    height: auto;
-    border: dotted green;
+    height: 50px;
+    /* padding: 5px; */
+    /* border: dotted green; */
 }
 #input2 {
     width: 300px;
-    height: auto;
-    border: dotted green;
+    height: 50px;
+    /* padding: 5px; */
+    /* border: dotted green; */
 }
 #input3 {
     width: 300px;
-    height: auto;
-    border: dotted green;
+    height: 50px;
+    /* padding: 5px; */
+    /* border: dotted green; */
 }
 
 #output {
     width: 300px;
-    height: auto;
-    border: dotted purple;
+    height: 50px;
+    /* border: dotted purple; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .board {
