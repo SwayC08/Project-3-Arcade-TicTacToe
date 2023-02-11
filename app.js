@@ -83,7 +83,6 @@ function buttonSelect(event){
     if (gameBoard[0] == nameP1 && gameBoard[1] === nameP1 && gameBoard[2] === nameP1){
         outputStatus.textContent = nameP1 + " Wins!";
         gameOver();
-        newCell.removeEventListener('click', buttonSelect);
         return
     };
     if (gameBoard[3] == nameP1 && gameBoard[4] === nameP1 && gameBoard[5] === nameP1){
@@ -129,7 +128,8 @@ function buttonSelect(event){
         return;
     };
     if (gameBoard[3] == nameP2 && gameBoard[4] === nameP2 && gameBoard[5] === nameP2){
-        outputStatus.textContent = nameP2 + " Wins!"
+        outputStatus.textContent = nameP2 + " Wins!";
+        gameOver();
         return;
     };
     if (gameBoard[6] == nameP2 && gameBoard[7] === nameP2 && gameBoard[8] === nameP2){

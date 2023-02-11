@@ -17,10 +17,6 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
 }
-h1 {
-    /* border: dotted red; */
-    /* width: 300px; */
-}
 
 #input1 {
     width: 300px;
